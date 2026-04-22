@@ -1,0 +1,32 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"
+norecursedirs = [
+  ".venv",
+  ".venv_bootstrap",
+  ".mypy_cache",
+  ".ruff_cache",
+  ".pytest_cache",
+  "pytest-cache-files-*",
+]
+
+[tool.ruff]
+exclude = [
+  ".venv",
+  ".venv_bootstrap",
+  ".mypy_cache",
+  ".ruff_cache",
+  ".pytest_cache",
+  "pytest-cache-files-*",
+]
+
+[tool.mypy]
+python_version = "3.12"
+exclude = '''(?x)(
+    ^\.venv/
+  | ^\.venv_bootstrap/
+  | ^\.mypy_cache/
+  | ^\.ruff_cache/
+  | ^\.pytest_cache/
+  | ^pytest-cache-files-.*
+)'''
